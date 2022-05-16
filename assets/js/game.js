@@ -25,9 +25,9 @@ if (promptFight === "fight" || promptFight === "FIGHT") {
   console.log(
     playerName +
       " attacked " +
-      enemyNames +
+      enemyName +
       ". " +
-      enemyNames +
+      enemyName +
       " now has " +
       enemyHealth +
       " health remaining."
@@ -35,9 +35,9 @@ if (promptFight === "fight" || promptFight === "FIGHT") {
 
   // check enemy's health
   if (enemyHealth <= 0) {
-    window.alert(enemyNames + " has died!");
+    window.alert(enemyName + " has died!");
   } else {
-    window.alert(enemyNames + " still has " + enemyHealth + " health left.");
+    window.alert(enemyName + " still has " + enemyHealth + " health left.");
   }
 
   // remove player's health by subtracting the amount set in the enemyAttack variable
