@@ -3,14 +3,11 @@ var playerHealth = 100;
 var playerAttack = 10;
 var playerMoney = 10;
 
-// You can also log multiple values at once like this
-console.log(playerName, playerAttack, playerHealth);
-
-var enemyName = "Roborto";
+var enemyNames = ["Roborto", "Amy Android", "Robo Trumble"];
 var enemyHealth = 50;
 var enemyAttack = 12;
 
-var fight = function () {
+var fight = function (enemyName) {
   // Alert players that they are starting the round
   window.alert("Welcome to Robot Gladiators!");
 };
@@ -28,9 +25,9 @@ if (promptFight === "fight" || promptFight === "FIGHT") {
   console.log(
     playerName +
       " attacked " +
-      enemyName +
+      enemyNames +
       ". " +
-      enemyName +
+      enemyNames +
       " now has " +
       enemyHealth +
       " health remaining."
@@ -38,9 +35,9 @@ if (promptFight === "fight" || promptFight === "FIGHT") {
 
   // check enemy's health
   if (enemyHealth <= 0) {
-    window.alert(enemyName + " has died!");
+    window.alert(enemyNames + " has died!");
   } else {
-    window.alert(enemyName + " still has " + enemyHealth + " health left.");
+    window.alert(enemyNames + " still has " + enemyHealth + " health left.");
   }
 
   // remove player's health by subtracting the amount set in the enemyAttack variable
@@ -48,7 +45,7 @@ if (promptFight === "fight" || promptFight === "FIGHT") {
   playerHealth = playerHealth - enemyAttack;
 
   console.log(
-    enemyName +
+    enemyNames +
       " attacked " +
       playerName +
       ". " +
@@ -79,6 +76,8 @@ if (promptFight === "fight" || promptFight === "FIGHT") {
 
   // if no (false), ask question again by running fight() again
   else {
-    fight();
+    for (var i = 0; i < enemyNames.length; i++) {
+      fight(enemyNames[i]);
+    }
   }
 }
