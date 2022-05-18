@@ -43,7 +43,7 @@ var fight = function (enemyName) {
       playerHealth = playerHealth - enemyAttack;
 
       console.log(
-        enemyNames +
+        enemyName +
           " attacked " +
           playerName +
           ". " +
@@ -76,15 +76,13 @@ var fight = function (enemyName) {
 
       // if no (false), ask question again by running fight() again
       else {
-        for (var i = 0; i < enemyNames.length; i++) {
-          fight(enemyNames[i]);
-        }
+        fight();
       }
     }
   }
 };
 for (var i = 0; i < enemyNames.length; i++) {
-  debugger;
-  //call fight function with enemy-robot
-  fight(enemyNames[i]);
+  var pickedEnemyName = enemyNames[i];
+  enemyHealth = 50;
+  fight(pickedEnemyName);
 }
