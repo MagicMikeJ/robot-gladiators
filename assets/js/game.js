@@ -110,7 +110,7 @@ var startGame = function () {
       fight(pickedEnemyObj);
 
       // if player is still alive and we're not at the last enemy in the array
-      if (playerInfo.health > 0 && i < enemyNames.length - 1) {
+      if (playerInfo.health > 0 && i < enemyInfo.length - 1) {
         // ask if player wants to use the store before next round
         var storeConfirm = window.confirm(
           "The fight is over, visit the store before the next round?"
@@ -189,8 +189,22 @@ var shop = function () {
       break;
   }
 };
+
+// function to set name
+var getPlayerName = function () {
+  var name = "";
+
+  while (name === "" || name === null) {
+    name = prompt("What is your robot's name?");
+  }
+  console.log("Your robot's name is " + name);
+  return name;
+};
+
+/* GAME INFORMATION / VARIABLES */
+
 var playerInfo = {
-  name: window.prompt("What is your robot's name?"),
+  name: getPlayerName(),
   health: 100,
   attack: 10,
   money: 10,
@@ -235,10 +249,10 @@ var enemyInfo = [
   },
 ];
 
-console.log(enemy.names);
-console.log(enemy.names.length);
-console.log(enemy.names[0]);
-console.log(enemy.names[3]);
+console.log(enemyInfo);
+console.log(enemyInfo[0]);
+console.log(enemyInfo[0].name);
+console.log(enemyInfo[0]["attack"]);
 
 //play again
 startGame();
